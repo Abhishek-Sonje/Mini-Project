@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Zap, Shield, Code } from "lucide-react";
+import Image from "next/image";
+import logo from "../public/logo.png";
 
 export default function Home() {
   return (
@@ -7,18 +9,33 @@ export default function Home() {
       {/* Navbar */}
       <nav className="w-full py-6 px-8 flex justify-between items-center max-w-7xl mx-auto w-full">
         <div className="text-2xl font-bold text-accent flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-            <Code size={20} />
+          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white overflow-hidden">
+            <Image
+              src={logo}
+              alt="TestGen.ai Logo"
+              width={32}
+              height={32}
+              priority
+            />
           </div>
           TestGen<span className="text-primary">.ai</span>
         </div>
         <div className="hidden md:flex gap-8 font-medium text-gray-600">
-          <a href="#features" className="hover:text-primary transition-colors">Features</a>
-          <a href="#how-it-works" className="hover:text-primary transition-colors">How it Works</a>
-          <a href="#pricing" className="hover:text-primary transition-colors">Pricing</a>
+          <a href="#features" className="hover:text-primary transition-colors">
+            Features
+          </a>
+          <a
+            href="#how-it-works"
+            className="hover:text-primary transition-colors"
+          >
+            How it Works
+          </a>
+          <a href="#pricing" className="hover:text-primary transition-colors">
+            Pricing
+          </a>
         </div>
-        <Link 
-          href="/generator" 
+        <Link
+          href="/generator"
           className="px-6 py-2.5 bg-accent text-white rounded-full font-medium hover:bg-primary transition-colors shadow-lg hover:shadow-orange-200/50"
         >
           Get Started
@@ -43,11 +60,12 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-              Stop writing boilerplate. Let our advanced AI analyze your code and generate comprehensive unit tests in seconds.
+              Stop writing boilerplate. Let our advanced AI analyze your code
+              and generate comprehensive unit tests in seconds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="/generator" 
+              <Link
+                href="/generator"
                 className="px-8 py-4 bg-accent text-white rounded-xl font-bold text-lg hover:bg-primary transition-all transform hover:-translate-y-1 shadow-xl flex items-center justify-center gap-2"
               >
                 Start Generating <ArrowRight size={20} />
@@ -58,10 +76,12 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-500 font-medium pt-4">
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-green-500" /> No credit card required
+                <CheckCircle2 size={16} className="text-green-500" /> No credit
+                card required
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-green-500" /> Free tier available
+                <CheckCircle2 size={16} className="text-green-500" /> Free tier
+                available
               </span>
             </div>
           </div>
@@ -77,14 +97,25 @@ export default function Home() {
                 </div>
                 <div className="space-y-3 font-mono text-sm">
                   <div className="text-gray-400">// Input: Your function</div>
-                  <div className="text-blue-400">function <span className="text-yellow-300">add</span>(a, b) {'{'}</div>
+                  <div className="text-blue-400">
+                    function <span className="text-yellow-300">add</span>(a, b){" "}
+                    {"{"}
+                  </div>
                   <div className="text-white pl-4">return a + b;</div>
-                  <div className="text-blue-400">{'}'}</div>
+                  <div className="text-blue-400">{"}"}</div>
                   <div className="h-4"></div>
                   <div className="text-gray-400">// Output: Generated Test</div>
-                  <div className="text-purple-400">test(<span className="text-green-300">'adds 1 + 2 to equal 3'</span>, () ={'>'} {'{'}</div>
-                  <div className="text-white pl-4">expect(add(1, 2)).toBe(3);</div>
-                  <div className="text-purple-400">{'}'});</div>
+                  <div className="text-purple-400">
+                    test(
+                    <span className="text-green-300">
+                      'adds 1 + 2 to equal 3'
+                    </span>
+                    , () ={">"} {"{"}
+                  </div>
+                  <div className="text-white pl-4">
+                    expect(add(1, 2)).toBe(3);
+                  </div>
+                  <div className="text-purple-400">{"}"});</div>
                 </div>
               </div>
             </div>
@@ -96,8 +127,13 @@ export default function Home() {
       <section className="py-20 bg-white" id="features">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-accent mb-4">Why Choose TestGen.ai?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">We combine cutting-edge AI with developer-focused tools to streamline your testing workflow.</p>
+            <h2 className="text-3xl font-bold text-accent mb-4">
+              Why Choose TestGen.ai?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We combine cutting-edge AI with developer-focused tools to
+              streamline your testing workflow.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -105,24 +141,29 @@ export default function Home() {
               {
                 icon: <Zap size={32} />,
                 title: "Lightning Fast",
-                desc: "Generate hundreds of lines of test code in seconds, not hours."
+                desc: "Generate hundreds of lines of test code in seconds, not hours.",
               },
               {
                 icon: <Shield size={32} />,
                 title: "Secure & Private",
-                desc: "Your code is processed securely and never stored on our servers."
+                desc: "Your code is processed securely and never stored on our servers.",
               },
               {
                 icon: <Code size={32} />,
                 title: "Multi-Language",
-                desc: "Support for JavaScript, Python, Java, and more popular languages."
-              }
+                desc: "Support for JavaScript, Python, Java, and more popular languages.",
+              },
             ].map((feature, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-gray-50 hover:bg-orange-50 transition-colors group">
+              <div
+                key={i}
+                className="p-8 rounded-2xl bg-gray-50 hover:bg-orange-50 transition-colors group"
+              >
                 <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-accent mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-accent mb-3">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
